@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-Minute Zakat Calculator - Fast, Free & Accurate | زکوٰۂ کیلکولیٹر</title>
+    <meta name="description" content="Calculate your Zakat in just 2 minutes with our free, scholar-approved calculator. Accurate results, multi-currency support, and direct payment to verified charities.">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2a9d8f;
+            --secondary-color: #1e4a5f;
+            --accent-color: #f4a261;
+            --background: #f8f9fa;
+            --text-dark: #264653;
+            --text-light: #555;
+            --palestine-red: #ce1126;
+            --highlight-color: #e76f51;
+            --currency-yellow: #fff9c4;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', 'Tajawal', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: var(--background);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Palestine Donation Ribbon */
+        .palestine-ribbon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--palestine-red);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 10;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .palestine-ribbon a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .palestine-ribbon:hover {
+            background: #b10e1f;
+            transform: translateY(-2px);
+        }
+
+        /* Premium Header */
+        .premium-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+            position: relative;
+        }
+
+        .premium-header h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            font-weight: 800;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .premium-header .urdu {
+            font-size: 2.4rem;
+            display: block;
+            margin-top: 10px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .premium-header p {
+            font-size: 1.3rem;
+            margin: 15px 0 0;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .badge i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Calculator Content */
+        .calculator-content {
+            padding: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto;
+        }
+
+        .quran-verse {
+            text-align: center;
+            font-style: italic;
+            margin: 25px 0;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            padding: 15px;
+            background: rgba(42, 157, 143, 0.08);
+            border-radius: 8px;
+            line-height: 1.7;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 8px;
+            font-size: 1.1rem;
+            transition: border 0.3s;
+            font-weight: 500;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
+        }
+
+        .urdu {
+            font-family: 'Noto Nastaliq Urdu', sans-serif;
+            font-size: 1.2em;
+            color: var(--text-dark);
+            direction: rtl;
+            font-weight: 500;
+        }
+
+        .currency-indicator {
+            background: var(--currency-yellow);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 0 auto 15px;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            max-width: 400px;
+            border: 2px solid #ffeb3b;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Results Section */
+        .results {
+            background: #e9f5f4;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .highlight {
+            color: var(--highlight-color);
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin: 15px 0;
+            line-height: 1.3;
+        }
+
+        /* Zakat Due Box */
+        .zakat-due-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.8rem;
+            border: 3px solid var(--accent-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .zakat-due-box .urdu {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        button i {
+            font-size: 1.5rem;
+        }
+
+        .donate-btn {
+            display: block;
+            background: var(--palestine-red);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 10px 0 15px;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .donate-btn:hover {
+            background: #b10e1f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(206, 17, 38, 0.3);
+        }
+
+        .donate-note {
+            text-align: center;
+            font-weight: 700;
+            margin: 15px 0;
+            color: var(--palestine-red);
+            font-size: 1.4rem;
+            background: #fff3e0;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        /* Knowledge Panels */
+        .knowledge-panel {
+            background: #fff;
+            border-left: 4px solid var(--primary-color);
+            padding: 25px;
+            margin: 35px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+
+        .fatwa-section {
+            background: #f8f5e4;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #d4af37;
+        }
+
+        .scholar-approval {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .scholar-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--primary-color);
+        }
+
+        /* Notes */
+        .note {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 25px;
+            line-height: 1.7;
+        }
+
+        .calculation-steps {
+            background: #f0f7f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .calculation-steps h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f5f5f5;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .social-share {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-share a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-share a:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+            .premium-header h1 {
+                font-size: 2rem;
+            }
+            .premium-header .urdu {
+                font-size: 1.8rem;
+            }
+            .palestine-ribbon {
+                position: static;
+                margin: 0 auto 20px;
+                width: fit-content;
+            }
+            .social-share {
+                position: static;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            .highlight {
+                font-size: 2rem;
+            }
+            .zakat-due-box {
+                font-size: 1.5rem;
+                padding: 15px;
+            }
+            .zakat-due-box .urdu {
+                font-size: 1.2rem;
+            }
+            .donate-btn {
+                font-size: 1.3rem;
+                padding: 15px;
+            }
+            .donate-note {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Palestine Donation Ribbon -->
+        <div class="palestine-ribbon">
+            <a href="https://donate.unrwa.org/int/en/zakat" target="_blank">
+                <i class="fas fa-hand-holding-heart"></i> Support Palestine Refugees with Your Zakat
+            </a>
+        </div>
+
+        <!-- Premium Header -->
+        <div class="premium-header">
+            <h1>2-Minute Zakat Calculator
+                <span class="urdu">دو منٹ میں زکوٰۂ کا حساب</span>
+            </h1>
+            <p>Fast. Free. Faithful. - Calculate Your Zakat in Just 2 Minutes!</p>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+            <div class="badge">
+                <i class="fas fa-bolt"></i>
+                <span>Fastest Zakat Calculator</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-lock"></i>
+                <span>100% Free & Secure</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-globe"></i>
+                <span>Multi-currency Support</span>
+            </div>
+        </div>
+
+        <div class="calculator-content">
+            <div class="quran-verse">
+                "And establish prayer and give zakah and bow with those who bow (in worship and obedience)" 
+                <span class="urdu">(اور نماز قائم کرو اور زکوٰۂ دو اور رکوع کرنے والوں کے ساتھ رکوع کرو)</span><br>
+                [Quran, 2:43]
+            </div>
+            
+            <div class="currency-indicator">
+                SELECT YOUR CURRENCY | <span class="urdu">اپنی کرنسی منتخب کریں</span>
+            </div>
+            
+            <div class="currency-selector">
+                <select id="currency" onchange="updateCurrency()">
+                    <option value="USD">USD ($) - US Dollar</option>
+                    <option value="PKR">PKR (₨) - Pakistani Rupee</option>
+                    <option value="INR">INR (₹) - Indian Rupee</option>
+                    <option value="SAR">SAR (﷼) - Saudi Riyal</option>
+                    <option value="AED">AED (د.إ) - UAE Dirham</option>
+                    <option value="QAR">QAR (﷼) - Qatari Riyal</option>
+                    <option value="GBP">GBP (£) - British Pound</option>
+                    <option value="EUR">EUR (€) - Euro</option>
+                    <option value="CAD">CAD ($) - Canadian Dollar</option>
+                    <option value="AUD">AUD ($) - Australian Dollar</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <div>
+                    <h2>What You Own <span class="urdu">(آپ کی ملکیت)</span></h2>
+                    <label>Cash at home and bank accounts <span class="urdu">(گھر اور بینک اکاؤنٹس میں نقد رقم)</span>
+                        <input type="number" id="cash" step="0.01" placeholder="0.00"></label>
+                    
+                    <label>Value of gold you own <span class="urdu">(آپ کے سونے کی مالیت)</span>
+                        <input type="number" id="gold" step="0.01" placeholder="0.00"></label>
+                    
+                    <label>Value of silver you own <span class="urdu">(آپ کی چاندی کی مالیت)</span>
+                        <input type="number" id="silver" step="0.01" placeholder="0.00"></label>
+                    
+                    <label>Value of investments and shares <span class="urdu">(سرمایہ کاری اور شیئرز کی مالیت)</span>
+                        <input type="number" id="investments" step="0.01" placeholder="0.00"></label>
+                    
+                    <label>Money owed to you <span class="urdu">(آپ کا واجب الوصول پیسہ)</span>
+                        <input type="number" id="owed" step="0.01" placeholder="0.00"></label>
+
+                    <label>Value of goods in stock for sale <span class="urdu">(فروخت کے لیے سامان کی مالیت)</span>
+                        <input type="number" id="stock" step="0.01" placeholder="0.00"></label>
+
+                    <label>Other assets <span class="urdu">(دیگر اثاثے)</span>
+                        <input type="number" id="other_assets" step="0.01" placeholder="0.00"></label>
+                </div>
+
+                <div>
+                    <h2>What You Owe <span class="urdu">(آپ کے قرضے)</span></h2>
+                    <label>Expenses (tax, rent, bills) <span class="urdu">(ٹیکس، کرایہ، بلز)</span>
+                        <input type="number" id="expenses" step="0.01" placeholder="0.00"></label>
+                    
+                    <label>Short term debts <span class="urdu">(قلیل مدتی قرضے)</span>
+                        <input type="number" id="debts" step="0.01" placeholder="0.00"></label>
+                    
+                    <label>Other Expenses <span class="urdu">(دیگر اخراجات)</span>
+                        <input type="number" id="other_expenses" step="0.01" placeholder="0.00"></label>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button onclick="calculateZakat()">
+                    <i class="fas fa-calculator"></i>
+                    CALCULATE ZAKAT <span class="urdu">(زکوٰۂ کا حساب لگائیں)</span>
+                </button>
+                <div id="zakat-due-box" style="display:none"></div>
+                <div id="donation-note" class="donate-note" style="display:none">CONTRIBUTE YOUR ZAKAT TO SUPPORT PALESTINE</div>
+                <div id="donation-button" style="margin-top:0"></div>
+            </div>
+
+            <div class="results" id="results">
+                <div id="total-assets"></div>
+                <div id="total-expenses"></div>
+                <div id="nisab-status"></div>
+                <div id="zakat-amount" style="margin-top:15px"></div>
+                
+                <div class="calculation-steps">
+                    <h3>Explanation of Zakat Calculation <span class="urdu">(زکوٰۂ کے حساب کی وضاحت)</span></h3>
+                    <p><strong>How we calculate:</strong></p>
+                    <ol>
+                        <li>Add up all your assets (cash, gold, investments, etc.)</li>
+                        <li>Subtract your immediate debts and expenses</li>
+                        <li>Check if the remaining amount meets the Nisab threshold</li>
+                        <li>If it does, pay 2.5% of this amount as Zakat</li>
+                    </ol>
+                    <p class="urdu">
+                        <strong>ہم حساب کیسے لگاتے ہیں:</strong><br>
+                        1. اپنے تمام اثاثوں کو جمع کریں (نقدی، سونا، سرمایہ کاری وغیرہ)<br>
+                        2. اپنے فوری قرضوں اور اخراجات کو منہا کریں<br>
+                        3. چیک کریں کہ باقی رقم نصاب تک پہنچتی ہے یا نہیں<br>
+                        4. اگر پہنچ جائے تو اس رقم کا 2.5% زکوٰۂ کے طور پر ادا کریں
+                    </p>
+                </div>
+            </div>
+
+            <!-- Knowledge Panel -->
+            <div class="knowledge-panel">
+                <h2>Zakat Mastery Guide <span class="urdu">(زکوٰۂ گائیڈ)</span></h2>
+                
+                <div class="fatwa-section">
+                    <h3>Why Zakat Matters <span class="urdu">(زکوٰۂ کی اہمیت)</span></h3>
+                    <p>Zakat purifies your wealth and soul, fulfills a pillar of Islam, and helps those in need. 
+                    <span class="urdu">(زکوٰۂ آپ کے مال اور روح کو پاک کرتا ہے، اسلام کے ایک رکن کو پورا کرتا ہے، اور ضرورت مندوں کی مدد کرتا ہے۔)</span></p>
+                </div>
+                
+                <div class="fatwa-section">
+                    <h3>Islamic Rulings on Zakat <span class="urdu">(زکوٰۂ کے شرعی احکام)</span></h3>
+                    <p>"Zakat is obligatory when your wealth reaches the Nisab threshold and remains for one lunar year." 
+                    <span class="urdu">(زکوٰۂ فرض ہے جب آپ کی دولت نصاب تک پہنچ جائے اور ایک قمری سال تک برقرار رہے۔)</span></p>
+                    <p>- Sheikh Ibn Uthaymeen (رحمہ اللہ)</p>
+                </div>
+
+                <div class="scholar-approval">
+                    <div class="scholar-card">
+                        <h4>What Counts as Wealth? <span class="urdu">(دولت کیا ہے؟)</span></h4>
+                        <p>Cash, gold, silver, investments, business inventory, and receivables all count toward your Zakat calculation.</p>
+                        <p class="urdu">(نقدی، سونا، چاندی، سرمایہ کاری، کاروباری سامان، اور واجب الادا رقم سب زکوٰۂ کے حساب میں شامل ہیں۔)</p>
+                    </div>
+                    <div class="scholar-card">
+                        <h4>What Doesn't Count? <span class="urdu">(کیا شامل نہیں؟)</span></h4>
+                        <p>Your home, personal car, and daily use items are exempt from Zakat.</p>
+                        <p class="urdu">(آپ کا گھر، ذاتی گاڑی، اور روزمرہ استعمال کی چیزیں زکوٰۂ سے مستثنیٰ ہیں۔)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>Zakat Calculation Made Simple:</strong><br>
+                1. Add up all your assets (cash, gold, investments, etc.)<br>
+                2. Subtract your immediate debts and expenses<br>
+                3. If the remaining amount meets the Nisab threshold (value of 87.48g gold or 612.36g silver)<br>
+                4. Pay 2.5% of this amount as Zakat<br><br>
+                
+                <span class="urdu">
+                <strong>زکوٰۂ کا حساب کتاب آسان:</strong><br>
+                1. اپنے تمام اثاثوں کو جمع کریں (نقدی، سونا، سرمایہ کاری وغیرہ)<br>
+                2. اپنے فوری قرضوں اور اخراجات کو منہا کریں<br>
+                3. اگر باقی رقم نصاب (87.48 گرام سونے یا 612.36 گرام چاندی کی مالیت) تک پہنچ جائے<br>
+                4. اس رقم کا 2.5% زکوٰۂ کے طور پر ادا کریں<br>
+                </span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>2-Minute Zakat Calculator - Fast, Free & Faithful</p>
+            <p>Created by Owais Haneef (<a href="mailto:owaishaneef8@gmail.com">owaishaneef8@gmail.com</a>)</p>
+            <p>© <span id="current-year"></span> All Rights Reserved</p>
+            
+            <div class="social-share">
+                <a href="https://wa.me/?text=Calculate%20your%20Zakat%20in%20just%202%20minutes%20with%20this%20free%20calculator%20https%3A%2F%2Fzakatcalculator.com" target="_blank" title="Share on WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fzakatcalculator.com" target="_blank" title="Share on Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/?url=https%3A%2F%2Fzakatcalculator.com" target="_blank" title="Share on Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Updated with more accurate exchange rates and metal prices
+        const EXCHANGE_RATES = {
+            USD: 1,
+            PKR: 278.50,  // Pakistani Rupee
+            INR: 83.33,   // Indian Rupee
+            SAR: 3.75,    // Saudi Riyal
+            AED: 3.67,    // UAE Dirham
+            QAR: 3.64,    // Qatari Riyal
+            GBP: 0.79,    // British Pound
+            EUR: 0.92,    // Euro
+            CAD: 1.36,    // Canadian Dollar
+            AUD: 1.50     // Australian Dollar
+        };
+
+        const NISAB_VALUES = {
+            gold: 87.48,    // grams (7.5 tola)
+            silver: 612.36  // grams (52.5 tola)
+        };
+
+        // Current metal prices (updated regularly)
+        const METAL_PRICES = {
+            gold: 64.50,   // USD per gram (as of recent market rates)
+            silver: 0.85    // USD per gram (as of recent market rates)
+        };
+
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Function to get Nisab threshold in selected currency
+        function getNisabThreshold(currency) {
+            // Calculate both gold and silver Nisab values
+            const goldValue = METAL_PRICES.gold * NISAB_VALUES.gold * EXCHANGE_RATES[currency];
+            const silverValue = METAL_PRICES.silver * NISAB_VALUES.silver * EXCHANGE_RATES[currency];
+            
+            // Return the lower value (Hanafi fiqh uses silver, others use gold)
+            return Math.min(goldValue, silverValue);
+        }
+
+        // Update currency display
+        function updateCurrency() {
+            calculateZakat();
+        }
+
+        // Main calculation function
+        function calculateZakat() {
+            const currency = document.getElementById('currency').value;
+            const symbol = document.querySelector(`#currency option[value="${currency}"]`).textContent.match(/\((.*?)\)/)[1];
+
+            // Get all asset values
+            const assets = {
+                cash: parseFloat(document.getElementById('cash').value) || 0,
+                gold: parseFloat(document.getElementById('gold').value) || 0,
+                silver: parseFloat(document.getElementById('silver').value) || 0,
+                investments: parseFloat(document.getElementById('investments').value) || 0,
+                owed: parseFloat(document.getElementById('owed').value) || 0,
+                stock: parseFloat(document.getElementById('stock').value) || 0,
+                other_assets: parseFloat(document.getElementById('other_assets').value) || 0
+            };
+
+            // Get all liability values
+            const liabilities = {
+                expenses: parseFloat(document.getElementById('expenses').value) || 0,
+                debts: parseFloat(document.getElementById('debts').value) || 0,
+                other_expenses: parseFloat(document.getElementById('other_expenses').value) || 0
+            };
+
+            // Calculate totals
+            const totalAssets = Object.values(assets).reduce((a, b) => a + b, 0);
+            const totalLiabilities = Object.values(liabilities).reduce((a, b) => a + b, 0);
+            const netWorth = totalAssets - totalLiabilities;
+            const nisabThreshold = getNisabThreshold(currency);
+
+            // Update totals display
+            document.getElementById('total-assets').innerHTML = `
+                <p>Total Assets (${symbol}): <strong>${totalAssets.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong> 
+                <span class="urdu">(کل اثاثے)</span></p>
+            `;
+            
+            document.getElementById('total-expenses').innerHTML = `
+                <p>Total Expenses (${symbol}): <strong>${totalLiabilities.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong> 
+                <span class="urdu">(کل اخراجات)</span></p>
+            `;
+
+            // Zakat calculation and display
+            let resultHTML = '';
+            let donationHTML = '';
+            let zakatDueHTML = '';
+            
+            if(netWorth >= nisabThreshold) {
+                const zakatAmount = (netWorth * 0.025).toFixed(2);
+                resultHTML = `
+                    <p class="highlight">${symbol}${zakatAmount} ZAKAT DUE <span class="urdu">(زکوٰۂ واجب)</span></p>
+                    <p>Your net worth of ${symbol}${netWorth.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} exceeds the Nisab threshold of ${symbol}${nisabThreshold.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                    <p><strong>Calculation:</strong> (${symbol}${netWorth.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} × 2.5%) = ${symbol}${zakatAmount}</p>
+                `;
+                
+                donationHTML = `
+                    <a href="https://donate.unrwa.org/int/en/zakat?amount=${zakatAmount}" 
+                       target="_blank" 
+                       class="donate-btn">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        PAY ${symbol}${zakatAmount} AS ZAKAT
+                        <span class="urdu">(زکوٰۂ ادا کریں)</span>
+                    </a>
+                `;
+                
+                // Show the Zakat Due box
+                zakatDueHTML = `
+                    <div class="zakat-due-box">
+                        <span>ZAKAT DUE <span class="urdu">(زکوٰۂ واجب)</span> =</span>
+                        <span style="color: var(--highlight-color); font-size: 2.2rem;">${symbol}${zakatAmount}</span>
+                    </div>
+                `;
+                document.getElementById('donation-note').style.display = 'block';
+            } else {
+                resultHTML = `
+                    <p class="highlight">NO ZAKAT DUE <span class="urdu">(زکوٰۂ واجب نہیں)</span></p>
+                    <p>Net worth (${symbol}${netWorth.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}) is below Nisab threshold (${symbol}${nisabThreshold.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})})</p>
+                    <p>You need additional ${symbol}${(nisabThreshold - netWorth).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} to reach Nisab</p>
+                `;
+                zakatDueHTML = `
+                    <div class="zakat-due-box">
+                        <span>NO ZAKAT DUE <span class="urdu">(زکوٰۂ واجب نہیں)</span></span>
+                    </div>
+                `;
+                document.getElementById('donation-note').style.display = 'none';
+            }
+
+            // Display results
+            document.getElementById('zakat-amount').innerHTML = resultHTML;
+            document.getElementById('donation-button').innerHTML = donationHTML;
+            document.getElementById('zakat-due-box').style.display = 'block';
+            document.getElementById('zakat-due-box').innerHTML = zakatDueHTML;
+            
+            document.getElementById('nisab-status').innerHTML = `
+                <p>Current Nisab Threshold: <strong>${symbol}${nisabThreshold.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong></p>
+                <p class="urdu">(موجودہ نصاب: ${symbol}${nisabThreshold.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})})</p>
+                <p class="note">Based on current gold (${symbol}${(METAL_PRICES.gold * EXCHANGE_RATES[currency]).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}/g) and silver (${symbol}${(METAL_PRICES.silver * EXCHANGE_RATES[currency]).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}/g) values</p>
+            `;
+        }
+
+        // Initialize calculator on page load
+        window.onload = function() {
+            // Clear all input fields
+            const inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.value = '';
+            });
+            
+            calculateZakat();
+        };
+    </script>
+</body>
+</html>
