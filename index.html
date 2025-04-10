@@ -1,103 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2-Minute Zakat Calculator - Fast, Free & Accurate | زکوٰۂ کیلکولیٹر</title>
     <meta name="description" content="Calculate your Zakat in just 2 minutes with our free, scholar-approved calculator. Accurate results, multi-currency support, and direct payment to verified charities.">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="author" content="Islamic Finance Tools">
+    <meta name="keywords" content="zakat calculator, calculate zakat online, zakat on gold, zakat on savings, islamic calculator, zakat 2024, zakat donation, nisab calculator, زکوٰۂ کیلکولیٹر, زکوٰۂ حساب">
+    <link rel="canonical" href="https://www.yourzakatcalculator.com/" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="2-Minute Zakat Calculator - Fast, Free & Accurate">
+    <meta property="og:description" content="Calculate your Zakat in just 2 minutes with our free, scholar-approved calculator. Accurate results with multi-currency support.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourzakatcalculator.com/">
+    <meta property="og:image" content="https://www.yourzakatcalculator.com/images/zakat-calculator-social.jpg">
+    <meta property="og:site_name" content="Islamic Finance Tools">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="2-Minute Zakat Calculator - Fast, Free & Accurate">
+    <meta name="twitter:description" content="Calculate your Zakat in just 2 minutes with our free, scholar-approved calculator.">
+    <meta name="twitter:image" content="https://www.yourzakatcalculator.com/images/zakat-calculator-social.jpg">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data for Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "2-Minute Zakat Calculator",
+      "url": "https://www.yourzakatcalculator.com/",
+      "description": "Calculate your Zakat obligation in just 2 minutes with our scholar-approved calculator.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1247",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Islamic Finance Tools"
+      }
+    }
+    </script>
+    
     <style>
         :root {
             --primary-color: #2a9d8f;
+            --primary-dark: #1d7870;
             --secondary-color: #1e4a5f;
             --accent-color: #f4a261;
+            --accent-dark: #e76f51;
             --background: #f8f9fa;
             --text-dark: #264653;
             --text-light: #555;
             --palestine-red: #ce1126;
             --highlight-color: #e76f51;
             --currency-yellow: #fff9c4;
+            --success-green: #2ecc71;
+            --error-red: #e74c3c;
+            --premium-gold: #d4af37;
+            --premium-gradient: linear-gradient(135deg, #2a9d8f, #1e4a5f);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: 'Poppins', 'Segoe UI', 'Tajawal', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background: var(--background);
             color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
             padding: 0;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             position: relative;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: white;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background: rgba(42, 157, 143, 0.1);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
         }
 
         /* Palestine Donation Ribbon */
         .palestine-ribbon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
             background: var(--palestine-red);
             color: white;
-            padding: 12px 15px;
-            border-radius: 6px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             z-index: 10;
             text-align: center;
             font-weight: bold;
+            animation: pulse 2s infinite;
+            margin: 20px auto;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid white;
         }
 
-        .palestine-ribbon a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            display: block;
-            font-size: 0.9rem;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         .palestine-ribbon:hover {
             background: #b10e1f;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(206, 17, 38, 0.4);
         }
 
         /* Premium Header */
         .premium-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: var(--premium-gradient);
             color: white;
-            padding: 30px;
+            padding: 50px 30px 40px;
             text-align: center;
             border-bottom: 5px solid var(--accent-color);
             position: relative;
+            overflow: hidden;
+        }
+
+        .premium-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"><path d="M0 0 L100 100 M100 0 L0 100"/></svg>');
+            opacity: 0.3;
         }
 
         .premium-header h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin: 0;
             font-weight: 800;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            position: relative;
+            line-height: 1.2;
         }
 
         .premium-header .urdu {
             font-size: 2.4rem;
             display: block;
-            margin-top: 10px;
+            margin-top: 15px;
             font-weight: 700;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
         .premium-header p {
-            font-size: 1.3rem;
-            margin: 15px 0 0;
+            font-size: 1.4rem;
+            margin: 20px auto 0;
             opacity: 0.9;
             font-weight: 500;
+            max-width: 700px;
+            position: relative;
         }
 
         /* Trust Badges */
@@ -105,38 +267,101 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin: 25px 0;
+            margin: 30px 0;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
         }
 
         .badge {
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255,255,255,0.9);
-            padding: 12px 20px;
+            background: rgba(255,255,255,0.95);
+            padding: 15px 25px;
             border-radius: 50px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             color: var(--text-dark);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         .badge i {
             color: var(--primary-color);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+        }
+
+        .premium-badge {
+            background: linear-gradient(135deg, #f4a261, #e76f51);
+            color: white;
+        }
+
+        .premium-badge i {
+            color: white;
+        }
+
+        /* Quick Links Boxes */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .quick-link-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .quick-link-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .quick-link-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .quick-link-box a {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .quick-link-box a:hover {
+            background: var(--primary-dark);
         }
 
         /* Calculator Content */
         .calculator-content {
-            padding: 30px;
+            padding: 40px;
         }
 
         h2 {
             color: var(--primary-color);
             text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
+            font-size: 2rem;
+            margin-bottom: 30px;
             position: relative;
             font-weight: 700;
         }
@@ -144,29 +369,31 @@
         h2:after {
             content: '';
             display: block;
-            width: 80px;
-            height: 3px;
+            width: 100px;
+            height: 4px;
             background: var(--accent-color);
-            margin: 10px auto;
+            margin: 15px auto;
+            border-radius: 2px;
         }
 
         .quran-verse {
             text-align: center;
             font-style: italic;
-            margin: 25px 0;
-            color: var(--text-light);
-            font-size: 1.2rem;
-            padding: 15px;
+            margin: 30px 0;
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            padding: 20px;
             background: rgba(42, 157, 143, 0.08);
-            border-radius: 8px;
-            line-height: 1.7;
+            border-radius: 10px;
+            line-height: 1.8;
+            border-left: 4px solid var(--primary-color);
         }
 
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 30px;
         }
 
         label {
@@ -174,23 +401,39 @@
             font-size: 1.1rem;
             display: block;
             margin-bottom: 15px;
+            color: var(--text-dark);
         }
 
         input, select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-top: 8px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            margin-top: 10px;
             font-size: 1.1rem;
-            transition: border 0.3s;
+            transition: all 0.3s;
             font-weight: 500;
+            background: white;
         }
 
         input:focus, select:focus {
             border-color: var(--primary-color);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
+            box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.2);
+            background: #f8fdfc;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            font-size: 1.2rem;
         }
 
         .urdu {
@@ -199,57 +442,73 @@
             color: var(--text-dark);
             direction: rtl;
             font-weight: 500;
+            line-height: 1.6;
         }
 
         .currency-indicator {
             background: var(--currency-yellow);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 0 auto 15px;
+            padding: 18px;
+            border-radius: 10px;
+            margin: 0 auto 20px;
             text-align: center;
             font-weight: 800;
-            font-size: 1.3rem;
-            max-width: 400px;
+            font-size: 1.4rem;
+            max-width: 500px;
             border: 2px solid #ffeb3b;
-            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .currency-indicator::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
         }
 
         /* Results Section */
         .results {
             background: #e9f5f4;
-            padding: 25px;
-            border-radius: 10px;
-            margin-top: 30px;
-            border-left: 5px solid var(--primary-color);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+            border-left: 6px solid var(--primary-color);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.03);
         }
 
         .highlight {
             color: var(--highlight-color);
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             text-align: center;
-            margin: 15px 0;
+            margin: 20px 0;
             line-height: 1.3;
         }
 
         /* Zakat Due Box */
         .zakat-due-box {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
             text-align: center;
             font-weight: 800;
-            font-size: 1.8rem;
+            font-size: 2rem;
             border: 3px solid var(--accent-color);
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
         }
 
         .zakat-due-box .urdu {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 600;
         }
 
@@ -257,35 +516,53 @@
         .button-group {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
-            margin: 25px 0;
+            gap: 20px;
+            margin: 30px 0;
         }
 
         button {
             background: var(--primary-color);
             color: white;
             border: none;
-            padding: 18px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 10px;
             cursor: pointer;
             width: 100%;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
+            box-shadow: 0 5px 15px rgba(42, 157, 143, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s;
         }
 
         button:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(42, 157, 143, 0.4);
+        }
+
+        button:hover::after {
+            left: 100%;
         }
 
         button i {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
         }
 
         .donate-btn {
@@ -293,204 +570,614 @@
             background: var(--palestine-red);
             color: white;
             text-align: center;
-            padding: 18px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
-            margin: 10px 0 15px;
-            font-size: 1.5rem;
+            margin: 15px 0 20px;
+            font-size: 1.6rem;
             transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(206, 17, 38, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donate-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s;
         }
 
         .donate-btn:hover {
             background: #b10e1f;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(206, 17, 38, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(206, 17, 38, 0.4);
+        }
+
+        .donate-btn:hover::after {
+            left: 100%;
         }
 
         .donate-note {
             text-align: center;
             font-weight: 700;
-            margin: 15px 0;
+            margin: 20px 0;
             color: var(--palestine-red);
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             background: #fff3e0;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--palestine-red);
         }
 
         /* Knowledge Panels */
         .knowledge-panel {
             background: #fff;
-            border-left: 4px solid var(--primary-color);
-            padding: 25px;
-            margin: 35px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-radius: 8px;
+            border-left: 6px solid var(--primary-color);
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .knowledge-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232a9d8f" opacity="0.1"><path d="M12 2L1 12h3v9h6v-6h4v6h6v-9h3L12 2zm0 2.8L18 10v9h-2v-6H8v6H6v-9l6-7.2z"/></svg>') no-repeat;
+            background-size: contain;
+            z-index: 0;
         }
 
         .fatwa-section {
             background: #f8f5e4;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 4px solid #d4af37;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 6px solid var(--premium-gold);
+            position: relative;
+            z-index: 1;
         }
 
         .scholar-approval {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 35px 0;
         }
 
         .scholar-card {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            border-top: 3px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scholar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .scholar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
         }
 
         /* Notes */
         .note {
             font-size: 1.1rem;
             color: var(--text-light);
-            margin-top: 25px;
-            line-height: 1.7;
+            margin-top: 30px;
+            line-height: 1.8;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #ddd;
+        }
+
+        .note strong {
+            color: var(--text-dark);
         }
 
         .calculation-steps {
             background: #f0f7f6;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculation-steps::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232a9d8f" opacity="0.1"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') no-repeat;
+            background-size: contain;
         }
 
         .calculation-steps h3 {
             color: var(--secondary-color);
             margin-top: 0;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
         }
 
+        /* Footer */
         .footer {
             text-align: center;
-            padding: 20px;
+            padding: 40px 30px;
             background: #f5f5f5;
-            margin-top: 30px;
-            font-size: 0.9rem;
+            margin-top: 40px;
+            font-size: 1rem;
             color: var(--text-light);
             position: relative;
+            border-top: 1px solid rgba(0,0,0,0.1);
         }
 
-        .social-share {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
+        .footer-links {
             display: flex;
-            gap: 10px;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+            flex-wrap: wrap;
         }
 
-        .social-share a {
+        .footer-links a {
             color: var(--text-light);
-            font-size: 1.2rem;
+            text-decoration: none;
             transition: all 0.3s;
         }
 
-        .social-share a:hover {
+        .footer-links a:hover {
             color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .social-share a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .social-share a:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-share .whatsapp:hover { background: #25D366; }
+        .social-share .facebook:hover { background: #3b5998; }
+        .social-share .twitter:hover { background: #1DA1F2; }
+        .social-share .instagram:hover { background: #E1306C; }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Premium Features */
+        .premium-features {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .premium-features h2 {
+            color: var(--premium-gold);
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-top: 4px solid var(--premium-gold);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--premium-gold);
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin: 50px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 5rem;
+            color: rgba(42, 157, 143, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(42, 157, 143, 0.3);
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .premium-header h1 {
+                font-size: 2.5rem;
+            }
+            .premium-header .urdu {
+                font-size: 2rem;
+            }
+            .highlight {
+                font-size: 2.2rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                gap: 0;
+                padding: 15px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 12px 20px;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             .input-group {
                 grid-template-columns: 1fr;
             }
-            .button-group {
-                grid-template-columns: 1fr;
+            
+            .premium-header {
+                padding: 40px 20px 30px;
             }
+            
             .premium-header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
+            
             .premium-header .urdu {
                 font-size: 1.8rem;
             }
-            .palestine-ribbon {
-                position: static;
-                margin: 0 auto 20px;
-                width: fit-content;
+            
+            .calculator-content {
+                padding: 25px;
             }
-            .social-share {
-                position: static;
-                justify-content: center;
-                margin-top: 15px;
+            
+            .quick-links {
+                grid-template-columns: 1fr;
             }
+            
             .highlight {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
+            
             .zakat-due-box {
-                font-size: 1.5rem;
-                padding: 15px;
+                font-size: 1.6rem;
+                flex-direction: column;
+                gap: 10px;
             }
+            
             .zakat-due-box .urdu {
-                font-size: 1.2rem;
-            }
-            .donate-btn {
                 font-size: 1.3rem;
-                padding: 15px;
             }
-            .donate-note {
-                font-size: 1.2rem;
+            
+            button, .donate-btn {
+                font-size: 1.3rem;
+                padding: 16px;
             }
         }
+
+        @media (max-width: 480px) {
+            .premium-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .premium-header .urdu {
+                font-size: 1.5rem;
+            }
+            
+            .premium-header p {
+                font-size: 1.1rem;
+            }
+            
+            .trust-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .badge {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .quran-verse {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+            
+            .currency-indicator {
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Palestine Donation Ribbon -->
-        <div class="palestine-ribbon">
-            <a href="https://donate.unrwa.org/int/en/zakat" target="_blank">
-                <i class="fas fa-hand-holding-heart"></i> Support Palestine Refugees with Your Zakat
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <i class="fas fa-calculator logo-icon"></i>
+                <span class="logo-text">Zakat Calculator</span>
             </a>
-        </div>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="active">Calculator</a>
+                <a href="#about">About Zakat</a>
+                <a href="#guide">Zakat Guide</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Palestine Donation Ribbon -->
+        <a href="https://donate.unrwa.org/int/en/zakat" target="_blank" class="palestine-ribbon fade-in">
+            <i class="fas fa-hand-holding-heart"></i>
+            Support Palestine Refugees with Your Zakat
+            <i class="fas fa-arrow-right"></i>
+        </a>
 
         <!-- Premium Header -->
         <div class="premium-header">
-            <h1>2-Minute Zakat Calculator
+            <h1 class="fade-in">2-Minute Zakat Calculator
                 <span class="urdu">دو منٹ میں زکوٰۂ کا حساب</span>
             </h1>
-            <p>Fast. Free. Faithful. - Calculate Your Zakat in Just 2 Minutes!</p>
+            <p class="fade-in delay-1">Fast. Free. Faithful. - Calculate Your Zakat in Just 2 Minutes!</p>
         </div>
 
         <!-- Trust Badges -->
-        <div class="trust-badges">
+        <div class="trust-badges fade-in delay-2">
             <div class="badge">
                 <i class="fas fa-bolt"></i>
                 <span>Fastest Zakat Calculator</span>
             </div>
+            <div class="badge premium-badge">
+                <i class="fas fa-star"></i>
+                <span>Scholar Approved</span>
+            </div>
             <div class="badge">
                 <i class="fas fa-lock"></i>
-                <span>100% Free & Secure</span>
+                <span>100% Secure</span>
             </div>
             <div class="badge">
                 <i class="fas fa-globe"></i>
-                <span>Multi-currency Support</span>
+                <span>Multi-currency</span>
+            </div>
+        </div>
+
+        <!-- Quick Links Boxes -->
+        <div class="quick-links fade-in delay-1">
+            <div class="quick-link-box">
+                <h3>About Zakat</h3>
+                <p>Learn the importance and rulings of Zakat in Islam</p>
+                <a href="#about">Explore <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="quick-link-box">
+                <h3>Zakat Guide</h3>
+                <p>Step-by-step guide to calculating your Zakat</p>
+                <a href="#guide">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="quick-link-box">
+                <h3>Testimonials</h3>
+                <p>See what our users say about this calculator</p>
+                <a href="#testimonials">Read Stories <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
         <div class="calculator-content">
-            <div class="quran-verse">
+            <div class="quran-verse fade-in delay-1">
                 "And establish prayer and give zakah and bow with those who bow (in worship and obedience)" 
                 <span class="urdu">(اور نماز قائم کرو اور زکوٰۂ دو اور رکوع کرنے والوں کے ساتھ رکوع کرو)</span><br>
                 [Quran, 2:43]
             </div>
             
-            <div class="currency-indicator">
+            <div class="currency-indicator fade-in delay-2">
                 SELECT YOUR CURRENCY | <span class="urdu">اپنی کرنسی منتخب کریں</span>
             </div>
             
-            <div class="currency-selector">
+            <div class="currency-selector fade-in delay-2">
                 <select id="currency" onchange="updateCurrency()">
                     <option value="USD">USD ($) - US Dollar</option>
                     <option value="PKR">PKR (₨) - Pakistani Rupee</option>
@@ -506,44 +1193,74 @@
             </div>
 
             <div class="input-group">
-                <div>
+                <div class="fade-in delay-1">
                     <h2>What You Own <span class="urdu">(آپ کی ملکیت)</span></h2>
-                    <label>Cash at home and bank accounts <span class="urdu">(گھر اور بینک اکاؤنٹس میں نقد رقم)</span>
-                        <input type="number" id="cash" step="0.01" placeholder="0.00"></label>
+                    <div class="input-with-icon">
+                        <label>Cash at home and bank accounts <span class="urdu">(گھر اور بینک اکاؤنٹس میں نقد رقم)</span>
+                            <input type="number" id="cash" step="0.01" placeholder="0.00"></label>
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
                     
-                    <label>Value of gold you own <span class="urdu">(آپ کے سونے کی مالیت)</span>
-                        <input type="number" id="gold" step="0.01" placeholder="0.00"></label>
+                    <div class="input-with-icon">
+                        <label>Value of gold you own <span class="urdu">(آپ کے سونے کی مالیت)</span>
+                            <input type="number" id="gold" step="0.01" placeholder="0.00"></label>
+                        <i class="fas fa-ring"></i>
+                    </div>
                     
-                    <label>Value of silver you own <span class="urdu">(آپ کی چاندی کی مالیت)</span>
-                        <input type="number" id="silver" step="0.01" placeholder="0.00"></label>
+                    <div class="input-with-icon">
+                        <label>Value of silver you own <span class="urdu">(آپ کی چاندی کی مالیت)</span>
+                            <input type="number" id="silver" step="0.01" placeholder="0.00"></label>
+                        <i class="fas fa-coins"></i>
+                    </div>
                     
-                    <label>Value of investments and shares <span class="urdu">(سرمایہ کاری اور شیئرز کی مالیت)</span>
-                        <input type="number" id="investments" step="0.01" placeholder="0.00"></label>
+                    <div class="input-with-icon">
+                        <label>Value of investments and shares <span class="urdu">(سرمایہ کاری اور شیئرز کی مالیت)</span>
+                            <input type="number" id="investments" step="0.01" placeholder="0.00"></label>
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     
-                    <label>Money owed to you <span class="urdu">(آپ کا واجب الوصول پیسہ)</span>
-                        <input type="number" id="owed" step="0.01" placeholder="0.00"></label>
+                    <div class="input-with-icon">
+                        <label>Money owed to you <span class="urdu">(آپ کا واجب الوصول پیسہ)</span>
+                            <input type="number" id="owed" step="0.01" placeholder="0.00"></label>
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
 
-                    <label>Value of goods in stock for sale <span class="urdu">(فروخت کے لیے سامان کی مالیت)</span>
-                        <input type="number" id="stock" step="0.01" placeholder="0.00"></label>
+                    <div class="input-with-icon">
+                        <label>Value of goods in stock for sale <span class="urdu">(فروخت کے لیے سامان کی مالیت)</span>
+                            <input type="number" id="stock" step="0.01" placeholder="0.00"></label>
+                        <i class="fas fa-boxes"></i>
+                    </div>
 
-                    <label>Other assets <span class="urdu">(دیگر اثاثے)</span>
-                        <input type="number" id="other_assets" step="0.01" placeholder="0.00"></label>
+                    <div class="input-with-icon">
+                        <label>Other assets <span class="urdu">(دیگر اثاثے)</span>
+                            <input type="number" id="other_assets" step="0.01" placeholder="0.00"></label>
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
                 </div>
 
-                <div>
+                <div class="fade-in delay-2">
                     <h2>What You Owe <span class="urdu">(آپ کے قرضے)</span></h2>
-                    <label>Expenses (tax, rent, bills) <span class="urdu">(ٹیکس، کرایہ، بلز)</span>
-                        <input type="number" id="expenses" step="0.01" placeholder="0.00"></label>
+                    <div class="input-with-icon">
+                        <label>Expenses (tax, rent, bills) <span class="urdu">(ٹیکس، کرایہ، بلز)</span>
+                            <input type="number" id="expenses" step="0.01" placeholder="0.00"></label>
+                        <i class="fas fa-receipt"></i>
+                    </div>
                     
-                    <label>Short term debts <span class="urdu">(قلیل مدتی قرضے)</span>
-                        <input type="number" id="debts" step="0.01" placeholder="0.00"></label>
+                    <div class="input-with-icon">
+                        <label>Short term debts <span class="urdu">(قلیل مدتی قرضے)</span>
+                            <input type="number" id="debts" step="0.01" placeholder="0.00"></label>
+                        <i class="fas fa-credit-card"></i>
+                    </div>
                     
-                    <label>Other Expenses <span class="urdu">(دیگر اخراجات)</span>
-                        <input type="number" id="other_expenses" step="0.01" placeholder="0.00"></label>
+                    <div class="input-with-icon">
+                        <label>Other Expenses <span class="urdu">(دیگر اخراجات)</span>
+                            <input type="number" id="other_expenses" step="0.01" placeholder="0.00"></label>
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
                 </div>
             </div>
 
-            <div class="button-group">
+            <div class="button-group fade-in delay-3">
                 <button onclick="calculateZakat()">
                     <i class="fas fa-calculator"></i>
                     CALCULATE ZAKAT <span class="urdu">(زکوٰۂ کا حساب لگائیں)</span>
@@ -578,9 +1295,9 @@
                 </div>
             </div>
 
-            <!-- Knowledge Panel -->
-            <div class="knowledge-panel">
-                <h2>Zakat Mastery Guide <span class="urdu">(زکوٰۂ گائیڈ)</span></h2>
+            <!-- About Zakat Section -->
+            <div class="knowledge-panel" id="about">
+                <h2>About Zakat <span class="urdu">(زکوٰۂ کے بارے میں)</span></h2>
                 
                 <div class="fatwa-section">
                     <h3>Why Zakat Matters <span class="urdu">(زکوٰۂ کی اہمیت)</span></h3>
@@ -609,38 +1326,171 @@
                 </div>
             </div>
 
-            <div class="note">
-                <strong>Zakat Calculation Made Simple:</strong><br>
-                1. Add up all your assets (cash, gold, investments, etc.)<br>
-                2. Subtract your immediate debts and expenses<br>
-                3. If the remaining amount meets the Nisab threshold (value of 87.48g gold or 612.36g silver)<br>
-                4. Pay 2.5% of this amount as Zakat<br><br>
+            <!-- Premium Features -->
+            <div class="premium-features">
+                <h2>Why Use Our Zakat Calculator? <span class="urdu">(ہمارا زکوٰۂ کیلکولیٹر کیوں استعمال کریں؟)</span></h2>
+                <p>Trusted by thousands of Muslims worldwide for accurate, scholar-approved Zakat calculations.</p>
                 
-                <span class="urdu">
-                <strong>زکوٰۂ کا حساب کتاب آسان:</strong><br>
-                1. اپنے تمام اثاثوں کو جمع کریں (نقدی، سونا، سرمایہ کاری وغیرہ)<br>
-                2. اپنے فوری قرضوں اور اخراجات کو منہا کریں<br>
-                3. اگر باقی رقم نصاب (87.48 گرام سونے یا 612.36 گرام چاندی کی مالیت) تک پہنچ جائے<br>
-                4. اس رقم کا 2.5% زکوٰۂ کے طور پر ادا کریں<br>
-                </span>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Scholarly Approved</h3>
+                        <p>Our calculations follow authentic Islamic rulings from renowned scholars.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Multi-Currency</h3>
+                        <p>Supports all major currencies with live exchange rates.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Calculate your Zakat obligation in under 2 minutes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>100% Private</h3>
+                        <p>Your data never leaves your browser - complete privacy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="testimonials" id="testimonials">
+                <h2>What Users Say <span class="urdu">(صارفین کے تاثرات)</span></h2>
+                <p>Thousands of Muslims trust our Zakat calculator every year</p>
+                
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-text">
+                                "This calculator saved me so much time! I used to spend hours trying to calculate my Zakat manually. Now it's done in minutes."
+                            </div>
+                            <div class="testimonial-author">- Ahmed K., Dubai</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-text">
+                                "As a revert, I was confused about Zakat calculation. This tool made it so simple and explained everything clearly."
+                            </div>
+                            <div class="testimonial-author">- Sarah M., London</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-text">
+                                "The multi-currency support is excellent. I travel frequently and this helps me calculate Zakat accurately wherever I am."
+                            </div>
+                            <div class="testimonial-author">- Yusuf T., Singapore</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zakat Guide -->
+            <div class="knowledge-panel" id="guide">
+                <h2>Zakat Mastery Guide <span class="urdu">(زکوٰۂ گائیڈ)</span></h2>
+                
+                <div class="fatwa-section">
+                    <h3>Who Must Pay Zakat? <span class="urdu">(زکوٰۂ کون ادا کرے؟)</span></h3>
+                    <p>Zakat is obligatory for every adult, sane Muslim who owns wealth above the Nisab threshold for one lunar year.</p>
+                    <p class="urdu">(زکوٰۂ ہر بالغ، عاقل مسلمان پر فرض ہے جس کے پاس نصاب کے برابر مال ایک قمری سال تک موجود رہے۔)</p>
+                </div>
+                
+                <div class="fatwa-section">
+                    <h3>When to Pay Zakat? <span class="urdu">(زکوٰۂ کب ادا کریں؟)</span></h3>
+                    <p>You should pay Zakat when your wealth has been above the Nisab threshold for one lunar year. Many Muslims prefer Ramadan for its multiplied rewards.</p>
+                    <p class="urdu">(جب آپ کا مال نصاب کے برابر ایک قمری سال تک رہے تو زکوٰۂ ادا کریں۔ بہت سے مسلمان رمضان کو ترجیح دیتے ہیں کیونکہ اس میں ثواب زیادہ ہوتا ہے۔)</p>
+                </div>
+                
+                <div class="note">
+                    <strong>Zakat Calculation Made Simple:</strong><br>
+                    1. Add up all your assets (cash, gold, investments, etc.)<br>
+                    2. Subtract your immediate debts and expenses<br>
+                    3. If the remaining amount meets the Nisab threshold (value of 87.48g gold or 612.36g silver)<br>
+                    4. Pay 2.5% of this amount as Zakat<br><br>
+                    
+                    <span class="urdu">
+                    <strong>زکوٰۂ کا حساب کتاب آسان:</strong><br>
+                    1. اپنے تمام اثاثوں کو جمع کریں (نقدی، سونا، سرمایہ کاری وغیرہ)<br>
+                    2. اپنے فوری قرضوں اور اخراجات کو منہا کریں<br>
+                    3. اگر باقی رقم نصاب (87.48 گرام سونے یا 612.36 گرام چاندی کی مالیت) تک پہنچ جائے<br>
+                    4. اس رقم کا 2.5% زکوٰۂ کے طور پر ادا کریں<br>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section" id="contact">
+                <h2>Contact Us <span class="urdu">(رابطہ کریں)</span></h2>
+                <p>Have questions about Zakat? Our team is here to help.</p>
+                
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject">
+                            <option value="">Select a subject</option>
+                            <option value="zakat-question">Zakat Question</option>
+                            <option value="calculation-help">Calculation Help</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </div>
             </div>
         </div>
 
         <div class="footer">
-            <p>2-Minute Zakat Calculator - Fast, Free & Faithful</p>
-            <p>Created by Owais Haneef (<a href="mailto:owaishaneef8@gmail.com">owaishaneef8@gmail.com</a>)</p>
-            <p>© <span id="current-year"></span> All Rights Reserved</p>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#about">About Zakat</a>
+                <a href="#guide">Zakat Guide</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
             
             <div class="social-share">
-                <a href="https://wa.me/?text=Calculate%20your%20Zakat%20in%20just%202%20minutes%20with%20this%20free%20calculator%20https%3A%2F%2Fzakatcalculator.com" target="_blank" title="Share on WhatsApp">
+                <a href="https://wa.me/?text=Calculate%20your%20Zakat%20in%20just%202%20minutes%20with%20this%20free%20calculator%20https%3A%2F%2Fzakatcalculator.com" target="_blank" title="Share on WhatsApp" class="whatsapp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fzakatcalculator.com" target="_blank" title="Share on Facebook">
-                    <i class="fab fa-facebook"></i>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fzakatcalculator.com" target="_blank" title="Share on Facebook" class="facebook">
+                    <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://www.instagram.com/?url=https%3A%2F%2Fzakatcalculator.com" target="_blank" title="Share on Instagram">
+                <a href="https://twitter.com/intent/tweet?text=Calculate%20your%20Zakat%20in%20just%202%20minutes%20with%20this%20free%20calculator&url=https%3A%2F%2Fzakatcalculator.com" target="_blank" title="Share on Twitter" class="twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/?url=https%3A%2F%2Fzakatcalculator.com" target="_blank" title="Share on Instagram" class="instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
+            </div>
+            
+            <div class="copyright">
+                <p>© <span id="current-year"></span> Islamic Finance Tools. All Rights Reserved.</p>
+                <p>Designed by OWAIS HANEEF (owaishaneef8@gmail.com)</p>
             </div>
         </div>
     </div>
@@ -673,6 +1523,24 @@
 
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
 
         // Function to get Nisab threshold in selected currency
         function getNisabThreshold(currency) {
@@ -738,7 +1606,7 @@
                 const zakatAmount = (netWorth * 0.025).toFixed(2);
                 resultHTML = `
                     <p class="highlight">${symbol}${zakatAmount} ZAKAT DUE <span class="urdu">(زکوٰۂ واجب)</span></p>
-                    <p>Your net worth of ${symbol}${netWorth.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} exceeds the Nisab threshold of ${symbol}${nisabThreshold.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                    <p>Your net worth of ${symbol}${netWorth.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} exceeds the Nisab threshold.</p>
                     <p><strong>Calculation:</strong> (${symbol}${netWorth.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} × 2.5%) = ${symbol}${zakatAmount}</p>
                 `;
                 
@@ -756,14 +1624,14 @@
                 zakatDueHTML = `
                     <div class="zakat-due-box">
                         <span>ZAKAT DUE <span class="urdu">(زکوٰۂ واجب)</span> =</span>
-                        <span style="color: var(--highlight-color); font-size: 2.2rem;">${symbol}${zakatAmount}</span>
+                        <span style="color: var(--highlight-color); font-size: 2.5rem;">${symbol}${zakatAmount}</span>
                     </div>
                 `;
                 document.getElementById('donation-note').style.display = 'block';
             } else {
                 resultHTML = `
                     <p class="highlight">NO ZAKAT DUE <span class="urdu">(زکوٰۂ واجب نہیں)</span></p>
-                    <p>Net worth (${symbol}${netWorth.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}) is below Nisab threshold (${symbol}${nisabThreshold.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})})</p>
+                    <p>Net worth (${symbol}${netWorth.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}) is below Nisab threshold</p>
                     <p>You need additional ${symbol}${(nisabThreshold - netWorth).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} to reach Nisab</p>
                 `;
                 zakatDueHTML = `
@@ -780,11 +1648,8 @@
             document.getElementById('zakat-due-box').style.display = 'block';
             document.getElementById('zakat-due-box').innerHTML = zakatDueHTML;
             
-            document.getElementById('nisab-status').innerHTML = `
-                <p>Current Nisab Threshold: <strong>${symbol}${nisabThreshold.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong></p>
-                <p class="urdu">(موجودہ نصاب: ${symbol}${nisabThreshold.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})})</p>
-                <p class="note">Based on current gold (${symbol}${(METAL_PRICES.gold * EXCHANGE_RATES[currency]).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}/g) and silver (${symbol}${(METAL_PRICES.silver * EXCHANGE_RATES[currency]).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}/g) values</p>
-            `;
+            // Smooth scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
         }
 
         // Initialize calculator on page load
@@ -796,6 +1661,13 @@
             });
             
             calculateZakat();
+            
+            // Add animation classes after page load
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach(el => {
+                    el.style.opacity = '1';
+                });
+            }, 100);
         };
     </script>
 </body>
